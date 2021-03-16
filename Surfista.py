@@ -18,9 +18,9 @@ class Surfista:
     def titulos(self):
         return self._titulos
     
-    @titulo.setter
+    @titulos.setter
     def titulos(self, novo_titulo):
-        self._titulos = novo_titulos
+        self._titulos = novo_titulo
     
     @property
     def idade(self):
