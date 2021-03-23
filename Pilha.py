@@ -26,7 +26,6 @@ class PilhaEncadeada:
     no = Surfista(nome, titulos, idade, cpf)
     no.prox = self._topo
     self._topo = no
-
     self._tamanho += 1
 
   def remover(self):
@@ -41,7 +40,7 @@ class PilhaEncadeada:
     p = self._topo
 
     while p != None:
-      saida += f'{p.dado}'
+      saida += f'{p.nome}, {p.titulos}, {p.idade}, {p.cpf}'
       p = p.prox
 
       if p != None:

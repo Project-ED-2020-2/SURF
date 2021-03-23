@@ -40,7 +40,7 @@ class ListaEncadeada:
     self._tamanho -= 1  
   
   def __str__(self):
-    saida = 'Fila: ['
+    saida = 'Lista: ['
     p = self._inicio
 
     while p != None:
