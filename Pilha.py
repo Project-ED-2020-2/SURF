@@ -1,26 +1,60 @@
-class Node:
-    def __init__(self, dado = None):
-        self._dado = dado
-        self._prox = None
-    
-    @property
-    def dado(self):
-        return self._dado
-    
-    @dado.setter
-    def dado(self, novo_dado):
-        self._dado = novo_dado
-    
-    @property
-    def proximo(self):
-        return self._prox
-    
-    @proximo.setter
-    def proximo(self, novo):
-        self._prox = novo
+from Surfista import Surfista
 
+class PilhaException(Exception):
+  def __init__(self,mensagem):
+    super().__init__(mensagem)
 
 class PilhaEncadeada:
-    def __init__(self):
-        self._inicio = None
-        self._tamanho = 0
+  def __init__(self):
+    self._topo = None
+    self._tamanho = 0
+  
+  @property
+  def topo(self):
+    if self.vazia():
+      raise PilhaException('A pilha está vazia')
+
+    return self.__topo
+
+  def vazia(self):
+    return self.__tamanho == 0
+  
+  def tamanho(self):
+    return self.__tamanho
+  
+  def inserir(self, nome, titulos, idade, cpf):
+    no = Surfista(nome, titulos, idade, cpf)
+    no.prox = self.__topo
+    self.__topo = no
+
+    self.__tamanho += 1
+
+  def remover(self):
+    if self.vazia():
+      raise PilhaException('A pilha está vazia')
+
+    self.__topo = self.__topo.prox
+    self.__tamanho -= 1  
+  
+  def __str__(self):
+    saida = 'Pilha: ['
+    p = self.__topo
+
+    while p != None:
+      saida += f'{p.dado}'
+      p = p.prox
+
+      if p != None:
+        saida += ', '
+    
+    saida += ']'
+    return saida
+
+  def imprimir(self):
+    print(self.__str__())
+
+  def modificar(self, novoValor):
+    if self.vazia():
+      raise PilhaException('A pilha está vazia')
+    
+    self.__topo.dado = novoValor
