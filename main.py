@@ -9,11 +9,10 @@ if __name__ == '__main__':
   l = ListaEncadeada()
   f = FilaEncadeada()
 
-  f.inserir('Pedro', 1, 24, 421621)
-  l.inserir('Joao', 3, 20, 246115)
-  p.inserir('John', 2, 21, 1246242)
-  p.inserir('Marcos', 1, 19, 1624811)
+  l.inserir('Pedro', 1, 24, 421621, 0)
+  l.inserir('Joao', 3, 20, 246115, 1)
+  l.inserir('John', 2, 21, 1246242, 2)
+  l.inserir('Marcos', 1, 19, 1624811, 2)
 
-  print(f)
   print(l)
-  print(p)
+

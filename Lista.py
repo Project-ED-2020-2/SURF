@@ -17,24 +17,40 @@ class ListaEncadeada:
     return self._tamanho == 0
   
   def tamanho(self):
+    if self.vazia():
+      raise ListaException('A lista está vazia.')
+      
     return self._tamanho
   
-  def inserir(self, nome, titulos, idade, cpf):
+  def inserir(self, nome, titulos, idade, cpf, posicao = 0):
     novo = Surfista(nome, titulos, idade, cpf)
     
     aux = self._inicio
+    cont = 0
 
-    if aux == None:
+    if posicao == 0:
+      novo.prox = self._inicio
       self._inicio = novo
+      self._tamanho += 1
+    
+      return ''
+    
+    if aux == None:
+      return ''
 
     else:
-      while aux.prox != None:
+      while cont < posicao and aux.prox != None:
         aux = aux.prox
+        cont += 1
+        #if cont + 1 == posicao:
+
+      novo.prox = aux.prox
+      aux.prox = novo
+
+      self._tamanho += 1 
+
+      return ''
     
-        aux.prox = novo
-
-    self._tamanho += 1 
-
   def remover(self):
     self._inicio = self.__inicio.prox
     self._tamanho -= 1  
