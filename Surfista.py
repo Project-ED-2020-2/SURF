@@ -48,5 +48,5 @@ class Surfista:
 
   # Possível Método funcional
 
-  # def incrementa_titulo(self):
+  # def incrementa_titulo(self, cpf):
   #     self._titulos += 1

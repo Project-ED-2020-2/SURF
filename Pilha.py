@@ -1,7 +1,7 @@
 from Surfista import Surfista
 
 class PilhaException(Exception):
-  def __init__(self,mensagem):
+  def __init__(self, mensagem):
     super().__init__(mensagem)
 
 class PilhaEncadeada:
@@ -14,31 +14,31 @@ class PilhaEncadeada:
     if self.vazia():
       raise PilhaException('A pilha está vazia')
 
-    return self.__topo
+    return self._topo
 
   def vazia(self):
-    return self.__tamanho == 0
+    return self._tamanho == 0
   
   def tamanho(self):
-    return self.__tamanho
+    return self._tamanho
   
   def inserir(self, nome, titulos, idade, cpf):
     no = Surfista(nome, titulos, idade, cpf)
-    no.prox = self.__topo
-    self.__topo = no
+    no.prox = self._topo
+    self._topo = no
 
-    self.__tamanho += 1
+    self._tamanho += 1
 
   def remover(self):
     if self.vazia():
       raise PilhaException('A pilha está vazia')
 
-    self.__topo = self.__topo.prox
-    self.__tamanho -= 1  
+    self._topo = self._topo.prox
+    self._tamanho -= 1  
   
   def __str__(self):
     saida = 'Pilha: ['
-    p = self.__topo
+    p = self._topo
 
     while p != None:
       saida += f'{p.dado}'
@@ -57,4 +57,4 @@ class PilhaEncadeada:
     if self.vazia():
       raise PilhaException('A pilha está vazia')
     
-    self.__topo.dado = novoValor
+    self._topo.dado = novoValor
