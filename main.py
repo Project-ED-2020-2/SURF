@@ -9,10 +9,11 @@ if __name__ == '__main__':
   l = ListaEncadeada()
   f = FilaEncadeada()
 
-  p.inserir('Pedro', 1, 24, 421621) # 5
-  p.inserir('Joao', 3, 20, 246115) # 2
-  p.inserir('John', 2, 21, 1246242) # 3
-  p.inserir('Marcos', 1, 19, 1624811) # 4
-  p.inserir('Carlos', 3, 20, 236115) # 1
+  camp1 = Campeonato('WSL')
+  camp1.adicionar_surfistasL('Pedro', 1, 24, 421621, 0) # 5
+  camp1.adicionar_surfistasL('Joao', 3, 20, 246115, 1) # 2
+  camp1.adicionar_surfistasL('John', 2, 21, 1246242, 2) # 3
+  camp1.adicionar_surfistasL('Marcos', 1, 19, 1624811, 3) # 4
+  camp1.adicionar_surfistasL('Carlos', 3, 20, 236115, 4) # 1
 
-  print()
+  print(camp1)

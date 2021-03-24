@@ -70,11 +70,11 @@ class ListaEncadeada:
       pontFind = pontFind.prox
       cont += 1
     
-    select = (f'Nome: {pontFind.nome}\nIdade: {pontFind.idade}\nCPF: {pontFind.cpf}\nTitulos: {pontFind.titulos}')
+    select = (f'Nome: {pontFind.nome}Titulos: {pontFind.titulos}')
 
     return select
   
-  def buscar(self, cpf):
+  def buscarCPF(self, cpf):
     pontDetetive = self._head
     search = None
 
@@ -82,6 +82,19 @@ class ListaEncadeada:
       pontDetetive = pontDetetive.prox
       if (pontDetetive.cpf == cpf):
         search = (f'Nome: {pontDetetive.nome}\nIdade: {pontDetetive.idade}\nCPF: {pontDetetive.cpf}\nTitulos: {pontDetetive.titulos}')
+    
+    return search
+  
+  def buscarPosicao(self, posicao):
+    pontDetetive = self._head
+    search = None
+    cont = 0
+
+    while ((cont < posicao) and (pontDetetive.prox != None)):
+      pontDetetive = pontDetetive.prox
+      cont += 1
+    
+    search = (f'Nome: {pontDetetive.nome}\nIdade: {pontDetetive.idade}\nCPF: {pontDetetive.cpf}\nTitulos: {pontDetetive.titulos}')
     
     return search
   
