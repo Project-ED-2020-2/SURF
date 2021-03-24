@@ -6,12 +6,15 @@ class FilaException(Exception):
 
 class FilaEncadeada:
   def __init__(self):
-    self._inicio = None
+    self._primeiro = None
     self._tamanho = 0
 
   @property
   def inicio(self):
-    return self._inicio
+    if self.vazia():
+      raise FilaException('A fila está vazia')
+
+    return self._primeiro
 
   def vazia(self):
     return self._tamanho == 0
@@ -20,44 +23,47 @@ class FilaEncadeada:
     return self._tamanho
   
   def inserir(self, nome, titulos, idade, cpf):
-    no = Surfista(nome, titulos, idade, cpf)
+    dado = Surfista(nome, titulos, idade, cpf)
     
-    aux = self._inicio
+    pontInsert = self._primeiro
 
-    if aux == None:
-      self._inicio = no
+    if pontInsert == None:
+      self._primeiro = dado
 
     else:
-      while aux.prox != None:
-        aux = aux.prox
+      while pontInsert.prox != None:
+        pontInsert = pontInsert.prox
     
-      aux.prox = no
+      pontInsert.prox = dado
 
     self._tamanho += 1 
 
-  def remover(self, posicao):
-    self._inicio = self._inicio.prox
-    self._tamanho -= 1  
+  def remover(self):
+    if self.vazia():
+      raise FilaException('A Fila está vazia')
+
+    self._primeiro = self._primeiro.prox
+    self._tamanho -= 1 
   
   def __str__(self):
-    saida = 'Fila: ['
-    p = self._inicio
+    output = 'Fila: ['
+    p = self._primeiro
 
     while p != None:
-      saida += f'[{p.nome}, {p.titulos}, {p.idade}, {p.cpf}]'
+      output += f'[{p.nome}, {p.titulos}, {p.idade}, {p.cpf}]'
       p = p.prox
 
       if p != None:
-        saida += ', '
+        output += ', '
     
-    saida += ']'
-    return saida
+    output += ']'
+    return output
+  
+  def mostrarElemento(self):
+    pontFind = self._primeiro
+
+    select = (f'Nome: {pontFind.nome}\nTitulos: {pontFind.titulos}\nIdade: {pontFind.idade}\nCPF: {pontFind.cpf}')
+    return select
 
   def imprimir(self):
     print(self.__str__())
-
-  def modificar(self, novoValor):
-    if self.vazia():
-      raise FilaException('A fila está vazia')
-    
-    self._topo.dado = novoValor

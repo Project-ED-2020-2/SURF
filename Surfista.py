@@ -45,8 +45,6 @@ class Surfista:
   @prox.setter
   def prox(self, novo):
     self._prox = novo
-  
-  # Possível Método funcional
 
-  # def incrementa_titulo(self, cpf):
-  #     self._titulos += 1
+  def incrementa_titulo(self, cpf):
+    self._titulos += 1

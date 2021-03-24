@@ -6,65 +6,129 @@ class ListaException(Exception):
 
 class ListaEncadeada:
   def __init__(self):
-    self._inicio = None
+    self._head = None
     self._tamanho = 0
   
   @property
   def inicio(self):
-    return self._inicio
+    return self._head
 
   def vazia(self):
     return self._tamanho == 0
   
   def tamanho(self):
     if self.vazia():
-      raise ListaException('A lista está vazia.')
+      raise ListaException('A lista está vazia')
       
     return self._tamanho
   
   def inserir(self, nome, titulos, idade, cpf, posicao):
-    aux = self._inicio
-    no = Surfista(nome, titulos, idade, cpf)
+    pontInsert = self._head
+    dado = Surfista(nome, titulos, idade, cpf)
     cont = 0
 
     if (posicao == 0):
-      no.prox = self._inicio
-      self._inicio = no
+      dado.prox = self._head
+      self._head = dado
       return ''
 
     else:
-      while ((aux.prox != None) and (cont < posicao)):
-        aux = aux.prox
+      while ((pontInsert.prox != None) and (cont < posicao)):
+        pontInsert = pontInsert.prox
         cont += 1
       
-      no.prox = aux.prox
-      aux.prox = no
+      dado.prox = pontInsert.prox
+      pontInsert.prox = dado
     
     self._tamanho += 1
 
   def remover(self, posicao):
-    self._inicio = self._inicio.prox
-    self._tamanho -= 1  
+    pontLixeiro = self._head
+    cont = 0
+    pontDelete = None
+    
+    if (posicao == 0):
+      self._head = self._head.prox
+      return ''
+
+    else:
+      while ((pontLixeiro.prox != None) and (cont < posicao)):
+        pontDelete = pontLixeiro
+        pontLixeiro = pontLixeiro.prox
+        cont += 1
+      
+      pontDelete.prox = pontLixeiro.prox
+    
+    self._tamanho -= 1
   
+  def mostrarElemento(self, posicao):
+    pontFind = self._head
+    cont = 0
+    select = None
+
+    while ((pontFind.prox != None) and (cont < posicao)):
+      pontFind = pontFind.prox
+      cont += 1
+    
+    select = (f'Nome: {pontFind.nome}\nIdade: {pontFind.idade}\nCPF: {pontFind.cpf}\nTitulos: {pontFind.titulos}')
+
+    return select
+  
+  def buscar(self, cpf):
+    pontDetetive = self._head
+    search = None
+
+    while (pontDetetive.prox != None):
+      pontDetetive = pontDetetive.prox
+      if (pontDetetive.cpf == cpf):
+        search = (f'Nome: {pontDetetive.nome}\nIdade: {pontDetetive.idade}\nCPF: {pontDetetive.cpf}\nTitulos: {pontDetetive.titulos}')
+    
+    return search
+  
+  def ordenar(self):
+    tail = None
+    while self._head != tail:
+      r = p = self._head
+      while p.prox != tail:
+        q = p.prox
+        if p.nome > q.nome:
+          p.prox = q.prox
+          q.prox = p
+          if p != self._head:
+            r.prox = q
+          else:
+            self._head = q
+          p, q = q, p
+        r = p
+        p = p.prox
+      tail = p
+    
+    output = 'Lista: ['
+    z = self._head
+
+    while z != None:
+      output += f'[{z.nome}, {z.titulos}, {z.idade}, {z.cpf}]'
+      z = z.prox
+
+      if z != None:
+        output += ', '
+    
+    output += ']'
+    return output
+
   def __str__(self):
-    saida = 'Lista: ['
-    p = self._inicio
+    output = 'Lista: ['
+    p = self._head
 
     while p != None:
-      saida += f'[{p.nome}, {p.titulos}, {p.idade}, {p.cpf}]'
+      output += f'[{p.nome}, {p.titulos}, {p.idade}, {p.cpf}]'
       p = p.prox
 
       if p != None:
-        saida += ', '
+        output += ', '
     
-    saida += ']'
-    return saida
+    output += ']'
+    return output
 
   def imprimir(self):
     print(self.__str__())
-
-  def modificar(self, novoValor):
-    if self.vazia():
-      raise ListaException('A Lista está vazia')
-    
-    self._inicio.dado = novoValor
