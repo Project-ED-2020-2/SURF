@@ -22,37 +22,28 @@ class ListaEncadeada:
       
     return self._tamanho
   
-  def inserir(self, nome, titulos, idade, cpf, posicao = 0):
-    novo = Surfista(nome, titulos, idade, cpf)
-    
+  def inserir(self, nome, titulos, idade, cpf, posicao):
     aux = self._inicio
+    no = Surfista(nome, titulos, idade, cpf)
     cont = 0
 
-    if posicao == 0:
-      novo.prox = self._inicio
-      self._inicio = novo
-      self._tamanho += 1
-    
-      return ''
-    
-    if aux == None:
+    if (posicao == 0):
+      no.prox = self._inicio
+      self._inicio = no
       return ''
 
     else:
-      while cont < posicao and aux.prox != None:
+      while ((aux.prox != None) and (cont < posicao)):
         aux = aux.prox
         cont += 1
-        #if cont + 1 == posicao:
-
-      novo.prox = aux.prox
-      aux.prox = novo
-
-      self._tamanho += 1 
-
-      return ''
+      
+      no.prox = aux.prox
+      aux.prox = no
     
-  def remover(self):
-    self._inicio = self.__inicio.prox
+    self._tamanho += 1
+
+  def remover(self, posicao):
+    self._inicio = self._inicio.prox
     self._tamanho -= 1  
   
   def __str__(self):
@@ -60,7 +51,7 @@ class ListaEncadeada:
     p = self._inicio
 
     while p != None:
-      saida += f'{p.nome}, {p.titulos}, {p.idade}, {p.cpf}'
+      saida += f'[{p.nome}, {p.titulos}, {p.idade}, {p.cpf}]'
       p = p.prox
 
       if p != None:
@@ -74,6 +65,6 @@ class ListaEncadeada:
 
   def modificar(self, novoValor):
     if self.vazia():
-      raise ListaException('A fila está vazia')
+      raise ListaException('A Lista está vazia')
     
-    self._topo.dado = novoValor
+    self._inicio.dado = novoValor

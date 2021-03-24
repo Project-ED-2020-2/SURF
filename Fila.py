@@ -6,45 +6,45 @@ class FilaException(Exception):
 
 class FilaEncadeada:
   def __init__(self):
-    self.__inicio = None
-    self.__tamanho = 0
+    self._inicio = None
+    self._tamanho = 0
 
   @property
   def inicio(self):
-    return self.__inicio
+    return self._inicio
 
   def vazia(self):
-    return self.__tamanho == 0
+    return self._tamanho == 0
   
   def tamanho(self):
-    return self.__tamanho
+    return self._tamanho
   
   def inserir(self, nome, titulos, idade, cpf):
-    novo = Surfista(nome, titulos, idade, cpf)
+    no = Surfista(nome, titulos, idade, cpf)
     
-    aux = self.__inicio
+    aux = self._inicio
 
     if aux == None:
-      self.__inicio = novo
+      self._inicio = no
 
     else:
       while aux.prox != None:
         aux = aux.prox
     
-        aux.prox = novo
+      aux.prox = no
 
-    self.__tamanho += 1 
+    self._tamanho += 1 
 
-  def remover(self):
-    self.__inicio = self.__inicio.prox
-    self.__tamanho -= 1  
+  def remover(self, posicao):
+    self._inicio = self._inicio.prox
+    self._tamanho -= 1  
   
   def __str__(self):
     saida = 'Fila: ['
-    p = self.__inicio
+    p = self._inicio
 
     while p != None:
-      saida += f'{p.nome}, {p.titulos}, {p.idade}, {p.cpf}'
+      saida += f'[{p.nome}, {p.titulos}, {p.idade}, {p.cpf}]'
       p = p.prox
 
       if p != None:
@@ -60,4 +60,4 @@ class FilaEncadeada:
     if self.vazia():
       raise FilaException('A fila está vazia')
     
-    self.__topo.dado = novoValor
+    self._topo.dado = novoValor

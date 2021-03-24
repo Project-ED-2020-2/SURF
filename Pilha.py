@@ -40,7 +40,7 @@ class PilhaEncadeada:
     p = self._topo
 
     while p != None:
-      saida += f'{p.nome}, {p.titulos}, {p.idade}, {p.cpf}'
+      saida += f'[{p.nome}, {p.titulos}, {p.idade}, {p.cpf}]'
       p = p.prox
 
       if p != None:
