@@ -5,9 +5,9 @@ from Pilha import PilhaEncadeada, PilhaEncadeada
 class Campeonato:
   def __init__(self, nome_camp):
     self._nome_camp = str(nome_camp)
-    self._lista_Surfistas = ListaEncadeada()
-    self._pilha_Surfistas = PilhaEncadeada()
-    self._fila_Surfistas = FilaEncadeada()
+    self._surfistasL = ListaEncadeada()
+    self._surfistasP = PilhaEncadeada()
+    self._surfistasF = FilaEncadeada()
 
   @property
   def nome_camp(self):
@@ -16,4 +16,16 @@ class Campeonato:
   @nome_camp.setter
   def nome_camp(self, novo_camp):
     self._nome_camp = novo_camp
+  
+  def adicionar_surfistasL(self):
+    self._surfistasL.adicionar()
+
+  def adicionar_surfistasP(self):
+    self._surfistasP.adicionar()
+  
+  def adicionar_surfistasF(self):
+    self._surfistasF.adicionar()
+
+  def buscar_surfista(self, cpf):
+    return self._surfistasL.buscar(cpf)
     
