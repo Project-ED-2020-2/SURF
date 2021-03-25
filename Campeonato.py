@@ -31,16 +31,22 @@ class Campeonato:
   
   def buscar_surfistaPosicao(self, posicao):
     return self._surfistasL.buscarPosicao(posicao)
-  
-  
-  # def menorIdade(self):
-  #   aux = self._surfistasL.inicio
-  #   menorIdade = 999
 
-  #   while (aux.prox != None):
-  #     aux = aux.prox
-  #     if (aux.idade < menorIdade):
-  #       menorIdade = aux
-    
-  #   return menorIdade
+  def maiorIdade(self):
+    return self._surfistasL.maiorIdade()
+  
+  def menorIdade(self):
+    return self._surfistasL.menorIdade()
+
+  def incrementaTitulo(self, cpf):
+    self._surfistasL.incrementaTitulo(cpf)
+  
+  def remover_surfistaL(self, posicao):
+    self._surfistasL.remover(posicao)
+  
+  def remover_surfistaF(self):
+    self._surfistasF.remover()
+  
+  def remover_surfistaP(self):
+    self._surfistasP.remover()
     
