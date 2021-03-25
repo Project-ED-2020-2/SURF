@@ -49,7 +49,7 @@ if __name__ == '__main__':
       titulosRecebe = int(input('Número de Titulos do Surfista: '))
       idadeRecebe = int(input('Idade do Surfista: '))
       cpfRecebe = int(input('CPF do Surfista: '))
-      print(f'Coloque um valor >= 0 e valor <= {camp1.mostrar_tam_surfistasL() + 1}')
+      print(f'Coloque uma posição >= 0 e posição <= {camp1.mostrar_tam_surfistasL() + 1}')
       posicaoOcup = int(input('Que posição pretende ocupar na lista: '))
       camp1.adicionar_surfistasL(nomeRecebe, titulosRecebe, idadeRecebe, cpfRecebe, posicaoOcup)
       
@@ -65,6 +65,7 @@ if __name__ == '__main__':
       
     elif (interacao == 4):
       print(camp1.menorIdade())
+      print()
       print(camp1.maiorIdade())
       
     elif (interacao == 5):

@@ -95,7 +95,7 @@ class ListaEncadeada:
       pontDetetive = pontDetetive.prox
       cont += 1
     
-    search = (f'Nome: {pontDetetive.nome}\nIdade: {pontDetetive.idade}\nCPF: {pontDetetive.cpf}\nTitulos: {pontDetetive.titulos}')
+    search = pontDetetive
     
     return search
   
@@ -129,54 +129,6 @@ class ListaEncadeada:
     
     output += ']'
     return output
-  
-  def menorIdade(self):
-    pontIdade = self._head
-    menorIdade = 999
-
-    while (pontIdade.prox != None):
-      pontIdade = pontIdade
-      if (pontIdade.idade < menorIdade):
-        menorIdade = pontIdade.idade
-        output = (f'Nome: {pontIdade.nome}\n')
-
-      pontIdade = pontIdade.prox
-    
-    output += (f'Idade: {menorIdade}')
-
-    return output
-  
-  def maiorIdade(self):
-    pontIdade = self._head
-    maiorIdade = 0
-
-    while (pontIdade.prox != None):
-      pontIdade = pontIdade
-      if (pontIdade.idade > maiorIdade):
-        maiorIdade = pontIdade.idade
-        output = (f'Nome: {pontIdade.nome}\n')
-    
-      pontIdade = pontIdade.prox
-    
-    output += (f'Idade: {maiorIdade}')
-
-    return output
-  
-  def incrementaTitulo(self, cpf):
-    aumentaTitulo = self._head
-    search = None
-
-    while (aumentaTitulo.prox != None):
-      aumentaTitulo = aumentaTitulo
-      if (aumentaTitulo.cpf == cpf):
-        search = aumentaTitulo
-        search.incrementa_titulo()
-        search.prox = aumentaTitulo.prox
-        aumentaTitulo = search
-      
-      aumentaTitulo = aumentaTitulo.prox
-    
-    return aumentaTitulo
     
   def __str__(self):
     output = 'Surfistas:\nNome — Quantidade de Títulos\n\n'

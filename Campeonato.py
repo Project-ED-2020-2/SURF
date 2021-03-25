@@ -29,15 +29,6 @@ class Campeonato:
   def buscar_surfistaCPF(self, cpf):
     return self._surfistasL.buscarCPF(cpf)
   
-  def maiorIdade(self):
-    return self._surfistasL.maiorIdade()
-  
-  def menorIdade(self):
-    return self._surfistasL.menorIdade()
-
-  def incrementaTitulo(self, cpf):
-    self._surfistasL.incrementaTitulo(cpf)
-  
   def remover_surfistaL(self, posicao):
     self._surfistasL.remover(posicao)
   
@@ -68,4 +59,42 @@ class Campeonato:
   def mostrar_tam_surfistasF(self):
     return self._surfistasF.tamanho()
   
+  def maiorIdade(self):
+    tam = self._surfistasL.tamanho()
+    maior = 0
+
+    for i in range(tam):
+      surfista = self._surfistasL.buscarPosicao(i)
+      if (surfista.idade > maior):
+        maior = surfista.idade
+        output = (f'Nome: {surfista.nome}\n')
+
+    output += (f'Idade: {maior}')
     
+    return output
+  
+  def menorIdade(self):
+    tam = self._surfistasL.tamanho()
+    menor = 999
+
+    for i in range(tam):
+      surfista = self._surfistasL.buscarPosicao(i)
+      if (surfista.idade < menor):
+        menor = surfista.idade
+        output = (f'Nome: {surfista.nome}\n')
+
+    output += (f'Idade: {menor}')
+    
+    return output
+
+  def incrementaTitulo(self, cpf):
+    tam = self._surfistasL.tamanho()
+    for i in range(tam):
+      surfista = self._surfistasL.buscarPosicao(i)
+      if (surfista.cpf == cpf):
+        incrementa = surfista
+        incrementa.incrementa_titulo()
+        incrementa.prox = surfista.prox
+        surfista = incrementa
+    
+    return surfista
