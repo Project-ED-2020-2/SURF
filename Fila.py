@@ -46,19 +46,19 @@ class FilaEncadeada:
     self._tamanho -= 1 
   
   def __str__(self):
-    output = 'Fila: ['
+    output = 'Surfistas:\nNome — Quantidade de Títulos\n\n'
     p = self._primeiro
 
     while p != None:
-      output += f'[{p.nome}, {p.titulos}, {p.idade}, {p.cpf}]'
+      output += f'{p.nome} — {p.titulos}\n'
       p = p.prox
 
       if p != None:
-        output += ', '
+        output += ''
     
-    output += ']'
+    output += ''
     return output
-  
+
   def mostrarElemento(self):
     pontFind = self._primeiro
 

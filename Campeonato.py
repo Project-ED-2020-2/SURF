@@ -21,17 +21,14 @@ class Campeonato:
     self._surfistasL.inserir(nome, titulos, idade, cpf, posicao)
 
   def adicionar_surfistasP(self, nome, titulos, idade, cpf):
-    self._surfistasP.adicionar(nome, titulos, idade, cpf)
+    self._surfistasP.inserir(nome, titulos, idade, cpf)
   
   def adicionar_surfistasF(self, nome, titulos, idade, cpf):
-    self._surfistasF.adicionar(nome, titulos, idade, cpf)
+    self._surfistasF.inserir(nome, titulos, idade, cpf)
 
   def buscar_surfistaCPF(self, cpf):
     return self._surfistasL.buscarCPF(cpf)
   
-  def buscar_surfistaPosicao(self, posicao):
-    return self._surfistasL.buscarPosicao(posicao)
-
   def maiorIdade(self):
     return self._surfistasL.maiorIdade()
   
@@ -53,9 +50,15 @@ class Campeonato:
   def ordenar_surfistasL(self):
     self._surfistasL.ordenar()
   
-  def imprimirSurfistas(self):
+  def imprimirSurfistasL(self):
     self._surfistasL.imprimir()
-    
+  
+  def imprimirSurfistasF(self):
+    self._surfistasF.imprimir()
+  
+  def imprimirSurfistasP(self):
+    self._surfistasP.imprimir()
+
   def mostrar_tam_surfistasL(self):
     self._surfistasL.tamanho()
   

@@ -42,18 +42,19 @@ class PilhaEncadeada:
     return select
 
   def __str__(self):
-    output = 'Pilha: ['
+    output = 'Surfistas:\nNome — Quantidade de Títulos\n\n'
     p = self._topo
 
     while p != None:
-      output += f'[{p.nome}, {p.titulos}, {p.idade}, {p.cpf}]'
+      output += f'{p.nome} — {p.titulos}\n'
       p = p.prox
 
       if p != None:
-        output += ', '
-
-    output += ']'
+        output += ''
+    
+    output += ''
     return output
+
 
   def imprimir(self):
     print(self.__str__())
