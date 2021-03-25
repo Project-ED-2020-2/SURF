@@ -60,12 +60,12 @@ class Campeonato:
     self._surfistasP.imprimir()
 
   def mostrar_tam_surfistasL(self):
-    self._surfistasL.tamanho()
+    return self._surfistasL.tamanho()
   
   def mostrar_tam_surfistasP(self):
-    self._surfistasP.tamanho()
+    return self._surfistasP.tamanho()
   
   def mostrar_tam_surfistasF(self):
-    self._surfistasF.tamanho()
+    return self._surfistasF.tamanho()
   
     

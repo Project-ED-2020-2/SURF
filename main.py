@@ -25,10 +25,6 @@ if __name__ == '__main__':
   camp1.adicionar_surfistasP('Elliot', 3, 27, 126431)
   camp1.adicionar_surfistasP('Jim', 4, 25, 421983)
 
-  camp1.imprimirSurfistasL()
-  camp1.imprimirSurfistasF()
-  camp1.imprimirSurfistasP()
-
   #Menu
 
   def imprimeMenu():
@@ -45,50 +41,45 @@ if __name__ == '__main__':
         |  [8]       Remover um Surfista      |
         |  [9]             SAIR               |\n''')
 
-
-  
-
   while True:
     imprimeMenu()
-    interacao = int(input('Digite qual opção você deseja acessar: ')
-    if interacao == 1:
+    interacao = int(input('Digite qual opção você deseja acessar: '))
+    if (interacao == 1):
       nomeRecebe = input('Digite o nome do Surfista: ')
       titulosRecebe = int(input('Número de Titulos do Surfista: '))
       idadeRecebe = int(input('Idade do Surfista: '))
       cpfRecebe = int(input('CPF do Surfista: '))
-      camp1.adicionar_surfistasL(nomeRecebe, titulosRecebe, idadeRecebe, cpfRecebe)      
-
-      imprimeMenu()
-    elif interacao == 2:
+      print(f'Coloque um valor >= 0 e valor <= {camp1.mostrar_tam_surfistasL() + 1}')
+      posicaoOcup = int(input('Que posição pretende ocupar na lista: '))
+      camp1.adicionar_surfistasL(nomeRecebe, titulosRecebe, idadeRecebe, cpfRecebe, posicaoOcup)
+      
+    elif (interacao == 2):
       incrementa = input('Deseja incrementar mais um titulo? S/N').upper()
-      if incrementa = 'S':
+      if incrementa == 'S':
         cpfVerify = int(input('Digite o CPF do Surfista: '))
         camp1.incrementaTitulo(cpfVerify)
-
-    imprimeMenu()
-    elif interacao == 3:
+      
+    elif (interacao == 3):
       buscaCPF = int(input('Digite o CPF do Surfista que deseja buscar: '))
-      print(camp1.buscar_surfistaCPF(buscarCPF))
-
-    imprimeMenu()
-    elif interacao == 4:
+      print(camp1.buscar_surfistaCPF(buscaCPF))
+      
+    elif (interacao == 4):
       print(camp1.menorIdade())
       print(camp1.maiorIdade())
-
-    elif interacao == 5:
-      print(camp1.ordenar_surfistasL())
-    
-    elif interacao == 6:
+      
+    elif (interacao == 5):
+      camp1.ordenar_surfistasL()
       camp1.imprimirSurfistasL()
-
-    elif interacao == 7:
+      
+    elif (interacao == 6):
+      camp1.imprimirSurfistasL()
+      
+    elif (interacao == 7):
       print(camp1.mostrar_tam_surfistasL())
-
-    elif interacao == 8:
-      remove = input('Digite a posição do Surfista que deseja Remover: ')
+      
+    elif (interacao == 8):
+      remove = int(input('Digite a posição do Surfista que deseja Remover: '))
       camp1.remover_surfistaL(remove)
 
     else:
       break
-
-  

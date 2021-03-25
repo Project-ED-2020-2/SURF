@@ -19,13 +19,14 @@ class ListaEncadeada:
   def tamanho(self):
     if self.vazia():
       raise ListaException('A lista está vazia')
-      
-    return self._tamanho
+    else:
+      return self._tamanho
   
   def inserir(self, nome, titulos, idade, cpf, posicao):
     pontInsert = self._head
     dado = Surfista(nome, titulos, idade, cpf)
     cont = 0
+    self._tamanho += 1
 
     if (posicao == 0):
       dado.prox = self._head
@@ -40,8 +41,6 @@ class ListaEncadeada:
       dado.prox = pontInsert.prox
       pontInsert.prox = dado
     
-    self._tamanho += 1
-
   def remover(self, posicao):
     pontLixeiro = self._head
     cont = 0
