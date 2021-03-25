@@ -180,17 +180,17 @@ class ListaEncadeada:
     return aumentaTitulo
     
   def __str__(self):
-    output = 'Lista: ['
+    output = 'Surfistas:\nNome — Quantidade de Títulos\n\n'
     p = self._head
 
     while p != None:
-      output += f'[{p.nome}, {p.titulos}, {p.idade}, {p.cpf}]'
+      output += f'{p.nome} — {p.titulos}\n'
       p = p.prox
 
       if p != None:
-        output += ', '
+        output += ''
     
-    output += ']'
+    output += ''
     return output
 
   def imprimir(self):

@@ -16,6 +16,4 @@ if __name__ == '__main__':
   l.inserir('Marcos', 1, 19, 1624811, 3) # 4
   l.inserir('Carlos', 3, 22, 236115, 4) # 1
 
-  l.remover()
-
   print(l)

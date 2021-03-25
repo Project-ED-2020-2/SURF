@@ -49,4 +49,10 @@ class Campeonato:
   
   def remover_surfistaP(self):
     self._surfistasP.remover()
+  
+  def ordenar_surfistasL(self):
+    self._surfistasL.ordenar()
+  
+  def imprimirSurfistas(self):
+    self._surfistasL.imprimir()
     
