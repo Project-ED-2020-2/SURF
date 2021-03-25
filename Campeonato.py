@@ -56,3 +56,13 @@ class Campeonato:
   def imprimirSurfistas(self):
     self._surfistasL.imprimir()
     
+  def mostrar_tam_surfistasL(self):
+    self._surfistasL.tamanho()
+  
+  def mostrar_tam_surfistasP(self):
+    self._surfistasP.tamanho()
+  
+  def mostrar_tam_surfistasF(self):
+    self._surfistasF.tamanho()
+  
+    
