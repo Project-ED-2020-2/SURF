@@ -22,8 +22,7 @@ class PilhaEncadeada:
   def tamanho(self):
     return self._tamanho
 
-  def inserir(self, nome, titulos, idade, cpf):
-    dado = Surfista(nome, titulos, idade, cpf)
+  def inserir(self, dado):
     dado.prox = self._topo
     self._topo = dado
     self._tamanho += 1

@@ -17,14 +17,14 @@ class Campeonato:
   def nome_camp(self, novo_camp):
     self._nome_camp = novo_camp
   
-  def adicionar_surfistasL(self, nome, titulos, idade, cpf, posicao):
-    self._surfistasL.inserir(nome, titulos, idade, cpf, posicao)
+  def adicionar_surfistasL(self, surfista, posicao):
+    self._surfistasL.inserir(surfista, posicao)
 
-  def adicionar_surfistasP(self, nome, titulos, idade, cpf):
-    self._surfistasP.inserir(nome, titulos, idade, cpf)
+  def adicionar_surfistasP(self, surfista):
+    self._surfistasP.inserir(surfista)
   
-  def adicionar_surfistasF(self, nome, titulos, idade, cpf):
-    self._surfistasF.inserir(nome, titulos, idade, cpf)
+  def adicionar_surfistasF(self, surfista):
+    self._surfistasF.inserir(surfista)
 
   def buscar_surfistaCPF(self, cpf):
     return self._surfistasL.buscarCPF(cpf)

@@ -22,9 +22,8 @@ class ListaEncadeada:
     else:
       return self._tamanho
   
-  def inserir(self, nome, titulos, idade, cpf, posicao):
+  def inserir(self, dado, posicao):
     pontInsert = self._head
-    dado = Surfista(nome, titulos, idade, cpf)
     cont = 0
     self._tamanho += 1
 
@@ -131,7 +130,7 @@ class ListaEncadeada:
     return output
     
   def __str__(self):
-    output = 'Surfistas:\nNome — Quantidade de Títulos\n\n'
+    output = 'Surfistas:\n'
     p = self._head
 
     while p != None:
@@ -146,3 +145,4 @@ class ListaEncadeada:
 
   def imprimir(self):
     print(self.__str__())
+  

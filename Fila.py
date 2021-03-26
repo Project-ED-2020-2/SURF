@@ -22,9 +22,7 @@ class FilaEncadeada:
   def tamanho(self):
     return self._tamanho
   
-  def inserir(self, nome, titulos, idade, cpf):
-    dado = Surfista(nome, titulos, idade, cpf)
-    
+  def inserir(self, dado):
     pontInsert = self._primeiro
 
     if pontInsert == None:
