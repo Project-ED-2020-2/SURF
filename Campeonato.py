@@ -98,3 +98,6 @@ class Campeonato:
         surfista = incrementa
     
     return surfista
+  
+  def mostrarElemento(self, posicao):
+    return self._surfistasL.mostrarElemento(posicao)

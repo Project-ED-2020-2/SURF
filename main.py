@@ -83,8 +83,8 @@ if __name__ == '__main__':
       if (incrementa == 1):
         cpfVerify = int(input('\nDigite o CPF do Surfista: '))
         camp1.incrementaTitulo(cpfVerify)
-
-      acessarMenu = int(input('\nDeseja voltar ao menu (1-SIM ou 2-NÃO): '))
+        print('\nTítulo incrementado com Sucesso!\n')
+      acessarMenu = int(input('Deseja voltar ao menu (1-SIM ou 2-NÃO): '))
 
       if(acessarMenu == 1):
         imprimeMenu()
@@ -122,8 +122,8 @@ if __name__ == '__main__':
       
     elif (interacao == 5):
       camp1.ordenar_surfistasL()
-
-      acessarMenu = int(input('\nDeseja voltar ao menu (1-SIM ou 2-NÃO): '))
+      print('\nSurfistas Ordenados com Sucesso!\n')
+      acessarMenu = int(input('Deseja voltar ao menu (1-SIM ou 2-NÃO): '))
 
       if(acessarMenu == 1):
         imprimeMenu()
@@ -154,8 +154,16 @@ if __name__ == '__main__':
         interacao = int(input('\nDigite qual opção você deseja acessar: '))
       
     elif (interacao == 8):
-      remove = int(input('\nDigite a posição do Surfista que deseja Remover: '))
-      camp1.remover_surfistaL(remove)
+      remove = int(input('Digite a posição do Surfista que deseja Remover: '))
+      print(camp1.mostrarElemento(remove))
+      validacao = input(f'Deseja remover o Surfista da posição {remove} S/N? ').upper()
+      if validacao == 'S':
+        camp1.remover_surfistaL(remove)
+        print('\nSurfista foi removido com Sucesso!')
+      else:
+        remove = int(input('Digite a posição do Surfista que deseja Remover: '))
+        print(camp1.mostrarElemento(remove))
+        validacao = input(f'Deseja remover o Surfista da posição {remove} S/N? ').upper()
 
       acessarMenu = int(input('\nDeseja voltar ao menu (1-SIM ou 2-NÃO): '))
 

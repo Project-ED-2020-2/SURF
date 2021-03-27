@@ -132,7 +132,7 @@ class ListaEncadeada:
     return output
     
   def __str__(self):
-    output = '\nSurfistas: \n'
+    output = '\nSurfistas:\n'
     p = self._head
 
     while p != None:
