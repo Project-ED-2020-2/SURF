@@ -32,32 +32,34 @@ class ListaEncadeada:
       self._head = dado
       return ''
 
-    else:
-      while ((pontInsert.prox != None) and (cont < posicao)):
-        pontInsert = pontInsert.prox
-        cont += 1
-      
-      dado.prox = pontInsert.prox
-      pontInsert.prox = dado
-    
-  def remover(self, posicao):
-    pontLixeiro = self._head
-    cont = 0
-    pontDelete = None
-    
-    if (posicao == 0):
-      self._head = self._head.prox
-      return ''
+    while ((pontInsert != None) and (cont < posicao - 1)):
+      pontInsert = pontInsert.prox
+      cont += 1
 
-    else:
-      while ((pontLixeiro.prox != None) and (cont < posicao)):
-        pontDelete = pontLixeiro
-        pontLixeiro = pontLixeiro.prox
-        cont += 1
+    dado.prox = pontInsert.prox
+    pontInsert.prox = dado
       
-      pontDelete.prox = pontLixeiro.prox
-    
-    self._tamanho -= 1
+  def remover(self, posicao):
+    if self.vazia():
+      raise ListaException('A lista está vazia')
+    else:
+      pontLixeiro = self._head
+      cont = 0
+      pontDelete = None
+      
+      if (posicao == 0):
+        self._head = self._head.prox
+        return ''
+
+      else:
+        while ((pontLixeiro.prox != None) and (cont < posicao)):
+          pontDelete = pontLixeiro
+          pontLixeiro = pontLixeiro.prox
+          cont += 1
+        
+        pontDelete.prox = pontLixeiro.prox
+      
+      self._tamanho -= 1
   
   def mostrarElemento(self, posicao):
     pontFind = self._head
@@ -76,7 +78,7 @@ class ListaEncadeada:
     pontDetetive = self._head
     search = None
 
-    while (pontDetetive.prox != None):
+    while (pontDetetive != None):
       pontDetetive = pontDetetive
       if (pontDetetive.cpf == cpf):
         search = (f'Nome: {pontDetetive.nome}\nIdade: {pontDetetive.idade}\nCPF: {pontDetetive.cpf}\nTitulos: {pontDetetive.titulos}')
@@ -130,11 +132,11 @@ class ListaEncadeada:
     return output
     
   def __str__(self):
-    output = 'Surfistas:\n'
+    output = '\nSurfistas: \n'
     p = self._head
 
     while p != None:
-      output += f'{p.nome} — {p.titulos}\n'
+      output += f'\n{p.nome} — {p.titulos}\n'
       p = p.prox
 
       if p != None:
